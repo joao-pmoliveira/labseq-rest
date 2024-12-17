@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -23,7 +24,7 @@ public class LabseqResource {
     @Path("/{n:\\d+}")
     @GET
     @Produces("application/json")
-    public Response getLabseq(int n) {
+    public Response getLabseq(@PathParam("n") int n) {
         Long result = l(n);
 
         HashMap<String, Long> response = new HashMap<>();
